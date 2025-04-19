@@ -1,0 +1,30 @@
+.chatbot-mobile {
+  width: 95vw !important;
+  max-width: 420px !important;
+  min-width: 0 !important;
+  right: 2vw !important;
+  left: 2vw !important;
+  bottom: 2vw !important;
+  border-radius: 1.5rem !important;
+}
+
+@media (max-width: 600px) {
+  .chatbot-mobile {
+    width: 98vw !important;
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    left: 1vw !important;
+    right: 1vw !important;
+    bottom: 1vw !important;
+    border-radius: 1.25rem !important;
+  }
+  .chatbot-mobile .h-\[550px\] {
+    height: 55vw !important;
+    min-height: 250px !important;
+    max-height: 70vw !important;
+  }
+  .chatbot-mobile input {
+    font-size: 1rem !important;
+    padding: 0.6rem 1rem !important;
+  }
+}

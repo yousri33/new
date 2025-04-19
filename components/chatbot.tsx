@@ -76,7 +76,7 @@ export default function Chatbot() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50 chatbot-mobile">
   {/* Glassy animated background for chatbot area */}
   <style>{`
     @keyframes fade-in-up { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none; } }
@@ -84,6 +84,7 @@ export default function Chatbot() {
     .animate-fade-in { animation: fade-in 0.7s cubic-bezier(.4,0,.2,1); }
     .animate-fade-in-up { animation: fade-in-up 0.7s cubic-bezier(.4,0,.2,1); }
   `}</style>
+  <link rel="stylesheet" href="/components/chatbot-mobile.css" />
       {!isOpen ? (
         <Button
           onClick={() => setIsOpen(true)}
