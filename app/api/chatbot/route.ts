@@ -4,12 +4,20 @@ export async function POST(req: Request) {
   try {
     const body = await req.json()
 
+    const apiKey = process.env.OPENROUTER_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: 'OpenRouter API key not configured' },
+        { status: 500 }
+      );
+    }
+
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer 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',
-        'HTTP-Referer': 'https://aurith.ai', // Optional. Site URL for rankings on openrouter.ai.
-        'X-Title': 'Aurith AI', // Optional. Site title for rankings on openrouter.ai.
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': 'https://aurith.ai',
+        'X-Title': 'Aurith AI',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
