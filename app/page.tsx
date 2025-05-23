@@ -3,6 +3,7 @@ import HowItWorks from "@/components/how-it-works"
 import OurAutomations from "@/components/our-automations"
 import AiCapabilities from "@/components/ai-capabilities"
 import WhoWeHelp from "@/components/who-we-help"
+import TeamSection from "@/components/team-section"
 import CtaSection from "@/components/cta-section"
 import Footer from "@/components/footer"
 
@@ -16,7 +17,7 @@ export default function Home() {
       <OurAutomations />
       <AiCapabilities />
       <WhoWeHelp />
-      <CtaSection />
+      <TeamSection />
       <Footer />
       <Chatbot />
     </main>

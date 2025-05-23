@@ -24,23 +24,20 @@ export default function OurAutomations() {
   return (
     <section
       ref={ref}
-      className="py-24 md:py-32 bg-gradient-to-tl from-indigo-50 via-cyan-50 to-slate-50 relative overflow-hidden"
+      className="relative overflow-hidden py-24 md:py-32 bg-slate-50"
+      style={{
+        marginTop: '-1px',
+      }}
     >
-      {/* Radial background glow */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[800px] h-[800px] md:w-[1100px] md:h-[1100px] bg-gradient-radial from-cyan-200 via-indigo-100 to-transparent opacity-40 blur-3xl rounded-full mx-auto animate-pulse-slow" />
-        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-gradient-radial from-blue-200 via-cyan-100 to-transparent opacity-60 blur-2xl rounded-full mx-auto animate-pulse-slow" />
-      </div>
-      {/* Animated sparkles */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        <span className="absolute top-16 left-1/4 w-3 h-3 bg-cyan-200 rounded-full opacity-70 blur-md animate-float-slow" />
-        <span className="absolute top-1/3 right-1/4 w-2 h-2 bg-indigo-200 rounded-full opacity-60 blur-sm animate-float-fast" />
-        <span className="absolute bottom-20 left-1/3 w-2.5 h-2.5 bg-blue-100 rounded-full opacity-80 blur-md animate-float-mid" />
-        <span className="absolute bottom-28 right-1/5 w-2 h-2 bg-indigo-100 rounded-full opacity-50 blur-sm animate-float-slow" />
-        <span className="absolute top-1/2 left-1/2 w-2 h-2 bg-cyan-100 rounded-full opacity-60 blur-sm animate-float-mid" />
-        <span className="absolute top-1/4 right-1/3 w-2 h-2 bg-blue-200 rounded-full opacity-60 blur-md animate-float-fast" />
-      </div>
-      <div className="container mx-auto px-4">
+      {/* Static background with subtle texture */}
+      <div className="absolute inset-0 z-0 bg-slate-50"></div>
+      
+      {/* Subtle texture */}
+      <div className="absolute inset-0 z-0 opacity-10" style={{
+        backgroundImage: 'radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)',
+        backgroundSize: '20px 20px',
+      }}></div>
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 animate-in fade-in slide-in-from-top-10 duration-700 ease-out bg-gradient-to-br from-blue-700 via-indigo-600 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">Our Automations</h2>
 
         <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
@@ -72,7 +69,7 @@ export default function OurAutomations() {
         </div>
       </div>
       {/* Section divider */}
-      <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-b from-transparent via-cyan-100 to-white opacity-80 blur-lg pointer-events-none" />
+      <div className="absolute left-0 right-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-slate-50 to-slate-50 pointer-events-none" />
     </section>
   )
 }
