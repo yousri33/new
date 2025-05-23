@@ -12,6 +12,12 @@ export async function POST(req: Request) {
       );
     }
 
+    console.log('Sending request to OpenRouter with body:', JSON.stringify({
+      model: body.model || 'google/gemini-2.0-flash-exp:free',
+      messages: body.messages || [],
+      ...body.extra_body
+    }, null, 2));
+
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -21,13 +27,20 @@ export async function POST(req: Request) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: body.model || 'google/gemini-2.0-flash-exp:free',
+        model: body.model || 'openai/gpt-3.5-turbo',
         messages: body.messages || [],
         ...body.extra_body
       })
     })
 
     const data = await response.json();
+    console.log('OpenRouter response:', JSON.stringify(data, null, 2));
+    
+    if (!response.ok) {
+      console.error('OpenRouter API error:', data);
+      return NextResponse.json({ error: 'Failed to get response from AI service' }, { status: response.status });
+    }
+
     // Ensure the output is always markdown format
     let responseContent = '';
     if (data.choices?.[0]?.message?.content) {
